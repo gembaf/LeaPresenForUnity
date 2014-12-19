@@ -9,13 +9,14 @@ public class SlideList {
   private List<Slide> slideList = new List<Slide>();
   private int currentIndex;
 
-  public SlideList(string path, Vector3 position) {
+  public SlideList(string path) {
     string[] files = Directory.GetFiles(path);
 
     //  Contents/.keepを無視する
     for ( int k = 1; k < files.Length; k++ ) {
-      Vector3 pos = position + Vector3.right * (k-1)*offset;
-      slideList.Add(new Slide(files[k], pos));
+      Slide slide = new Slide(files[k]);
+      slideList.Add(slide);
+      slide.Move(Vector3.right * (k-1) * offset);
     }
     currentIndex = 0;
   }
@@ -32,7 +33,7 @@ public class SlideList {
   public void SetSlide() {
     float pos = -currentIndex * offset;
     for ( int k = 0; k < slideList.Count; k++ ) {
-      slideList[k].Move(pos);
+      slideList[k].Move(Vector3.right * pos);
       pos += offset;
     }
   }

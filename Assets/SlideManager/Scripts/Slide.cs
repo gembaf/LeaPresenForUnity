@@ -7,8 +7,8 @@ public class Slide {
   private readonly GameObject prefab = Resources.Load("Slide") as GameObject;
   private GameObject slide;
 
-  public Slide(string path, Vector3 position) {
-    slide = MonoBehaviour.Instantiate(prefab, position, Quaternion.identity) as GameObject;
+  public Slide(string path) {
+    slide = MonoBehaviour.Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
     slide.guiTexture.texture = LoadTexture(path);
     slide.guiTexture.pixelInset = GetRect(slide.guiTexture.texture);
     slide.transform.localScale = Vector3.zero;
@@ -18,8 +18,8 @@ public class Slide {
     get { return Math.Abs(this.slide.transform.position.x); }
   }
 
-  public void Move(float x) {
-    this.slide.transform.position = Vector3.right*x;
+  public void Move(Vector3 position) {
+    this.slide.transform.position = position;
   }
 
   private Rect GetRect(Texture texture) {

@@ -7,7 +7,7 @@ public class SlideManager {
   private int currentIndex;
 
   public SlideManager() {
-    slideManager.Add(new SlideList("./Contents", new Vector3(0, 0, 0)));
+    slideManager.Add(new SlideList("./Contents"));
     currentIndex = 0;
   }
 
