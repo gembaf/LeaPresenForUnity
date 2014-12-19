@@ -9,6 +9,7 @@ public class App : MonoBehaviour {
   void Awake() {
     SlideManager = new SlideManager();
     LeapController = new Controller();
+    LeapController.EnableGesture(Gesture.GestureType.TYPE_SWIPE);
   }
 
   void Update() {
