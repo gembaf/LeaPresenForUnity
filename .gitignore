@@ -16,6 +16,6 @@
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
 
-Resources/*
-!/Resources/.keep
+Contents/*
+!/Contents/.keep
 
