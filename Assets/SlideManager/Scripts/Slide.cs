@@ -9,8 +9,8 @@ public class Slide {
 
   public Slide(string path) {
     slide = MonoBehaviour.Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
-    slide.guiTexture.texture = LoadTexture(path);
-    slide.guiTexture.pixelInset = GetRect(slide.guiTexture.texture);
+    slide.GetComponent<GUITexture>().texture = LoadTexture(path);
+    slide.GetComponent<GUITexture>().pixelInset = GetRect(slide.GetComponent<GUITexture>().texture);
     slide.transform.localScale = Vector3.zero;
   }
 
